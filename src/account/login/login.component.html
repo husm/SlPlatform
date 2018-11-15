@@ -1,0 +1,33 @@
+<div class="login-form">
+    <form #loginForm="ngForm" id="LoginForm" method="POST" novalidate (ngSubmit)="login()">
+        <h1>Login</h1>
+
+        <div class="input-group">
+            <span>
+                <fa-icon [icon]="iconPerson"></fa-icon>
+            </span>
+            <input [(ngModel)]="loginService.authenticateModel.userNameOrEmailAddress" autofocus type="text"
+                autocomplete="off" placeholder="User Name or Email Address" name="userNameOrEmailAddress" required
+                maxlength="255" />
+        </div>
+
+        <div class="input-group">
+            <span>
+                <fa-icon [icon]="iconPassword"></fa-icon>
+            </span>
+            <input [(ngModel)]="loginService.authenticateModel.password" autofocus type="password" autocomplete="off"
+                placeholder="Password" name="password" required maxlength="32" />
+        </div>
+        <div class="input-group submit">
+            <!-- <input type="checkbox" [(ngModel)]="loginService.rememberMe" name="rememberMe" id="rememberMe" value="true">
+            <label for="rememberMe">Remember Me</label> -->
+            <label class="checkbox" nz-checkbox [(ngModel)]="loginService.rememberMe" name="rememberMe">Remember Me</label>
+            <button nz-button nzType="primary" id="LoginButton" type="submit">Login</button>
+        </div>
+        <div nz-row nzSpan="24" nzType="flex" nzJustify="center" class="register-password-group">
+            <a [routerLink]="['../register']">Register</a>
+            <span>|</span>
+            <a [routerLink]="['../password']">Forget password</a>
+        </div>
+    </form>
+</div>
